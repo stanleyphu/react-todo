@@ -13,6 +13,7 @@ module.exports = {
 
     try {
       todos = JSON.parse(stringTodos);
+      console.log(todos);
     } catch (e) {
 
     }
