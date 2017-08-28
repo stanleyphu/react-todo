@@ -19,12 +19,11 @@ describe('Reducers', () => {
   describe('showCompletedReducer', () => {
     it('should toggle showCompleted', () => {
       var action = {
-        type: 'TOGGLE_SHOW_COMPLETED',
+        type: 'TOGGLE_SHOW_COMPLETED'
       };
-      var state = false;
-      var res = reducers.showCompletedReducer(df(state), df(action));
+      var res = reducers.showCompletedReducer(df(false), df(action));
 
-      expect(res).toEqual(!state);
+      expect(res).toEqual(true);
     });
   });
 
@@ -41,23 +40,21 @@ describe('Reducers', () => {
     });
 
     it('should toggle todo', () => {
-      var todos = [
-        {
-          id: 123,
-          text: "Walk the dog",
-          completed: false,
-          createdAt: 123,
-          completedAt: undefined
-        }
-      ];
+      var todos = [{
+        id: '123',
+        text: 'Something',
+        completed: true,
+        createdAt: 123,
+        completedAt: 125
+      }];
       var action = {
         type: 'TOGGLE_TODO',
-        id: 123
+        id: '123'
       };
       var res = reducers.todosReducer(df(todos), df(action));
 
-      expect(res[0].completed).toEqual(true);
-      expect(res[0].completedAt).toBeA('number');
+      expect(res[0].completed).toEqual(false);
+      expect(res[0].completedAt).toEqual(undefined);
     });
   });
 });

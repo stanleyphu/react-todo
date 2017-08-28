@@ -12,9 +12,9 @@ describe('Actions', () => {
     expect(res).toEqual(action);
   });
 
-  it('should generate toggle showCompleted action', () => {
+  it('should generate toggle show completed action', () => {
     var action = {
-      type: 'TOGGLE_SHOW_COMPLETED',
+      type: 'TOGGLE_SHOW_COMPLETED'
     };
     var res = actions.toggleShowCompleted();
 

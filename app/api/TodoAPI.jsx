@@ -13,7 +13,6 @@ module.exports = {
 
     try {
       todos = JSON.parse(stringTodos);
-      console.log(todos);
     } catch (e) {
 
     }
@@ -30,21 +29,17 @@ module.exports = {
 
     // Filter by searchText
     filteredTodos = filteredTodos.filter((todo) => {
-      var todoText = todo.text.toLowerCase();
-
-      return searchText.length === 0 || todoText.indexOf(searchText) > -1
+      var text = todo.text.toLowerCase();
+      return searchText.length === 0 || text.indexOf(searchText) > -1;
     });
 
     // Sort todos with non-completed first
-    // 1 = b before a, -1 = a before b
     filteredTodos.sort((a, b) => {
       if (!a.completed && b.completed) {
         return -1;
-      }
-      else if (a.completed && !b.completed) {
+      } else if (a.completed && !b.completed) {
         return 1;
-      }
-      else {
+      } else {
         return 0;
       }
     });
