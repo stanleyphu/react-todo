@@ -21,7 +21,6 @@ export var Todo = React.createClass({
 
     return (
       <div className={todoClassName} onClick={() => {
-          // this.props.onToggle(id);
           dispatch(actions.toggleTodo(id));
         }}>
         <div>
@@ -36,4 +35,4 @@ export var Todo = React.createClass({
   }
 });
 
-export default  connect()(Todo);
+export default connect()(Todo);
